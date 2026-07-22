@@ -389,10 +389,12 @@ export default function DayCalendar({
             const defaultDur = getDefaultDuration(place)
             const custom = item.durationMin !== defaultDur
             const dragging = live?.index === index
+            /** 矮於約 80 分：工具列改懸浮顯示，避免蓋住標題／時段 */
+            const compact = height < 96
             return (
               <div
                 key={`${item.placeId}-${index}`}
-                className={`${styles.block} ${place.difficulty >= 3 ? styles.blockHigh : place.difficulty === 2 ? styles.blockMid : styles.blockLow} ${dragging ? styles.blockDragging : ''}`}
+                className={`${styles.block} ${place.difficulty >= 3 ? styles.blockHigh : place.difficulty === 2 ? styles.blockMid : styles.blockLow} ${compact ? styles.blockCompact : ''} ${dragging ? styles.blockDragging : ''}`}
                 style={{ top, height }}
               >
                 <div

@@ -287,6 +287,37 @@
   margin-top: auto;
   position: relative;
   z-index: 1;
+  flex-shrink: 0;
+}
+
+/* 短時長：預設只顯示標題／時段，工具列懸停或聚焦時浮出 */
+.blockCompact {
+  padding-bottom: 0.35rem;
+}
+
+.blockCompact .blockMain img {
+  width: 28px;
+  height: 28px;
+}
+
+.blockCompact .blockTools {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0.3rem 0.4rem 0.45rem;
+  background: color-mix(in srgb, #fff 94%, var(--day-color, var(--ocean)));
+  border-top: 1px solid color-mix(in srgb, var(--day-color, var(--ocean)) 35%, #ddd);
+  border-radius: 0 0 7px 7px;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.06);
+  z-index: 4;
+}
+
+.blockCompact:hover .blockTools,
+.blockCompact:focus-within .blockTools {
+  display: flex;
 }
 
 .blockTools label {
@@ -338,5 +369,15 @@
   .block:focus-within .blockTools,
   .block:hover .blockTools {
     display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0.3rem 0.4rem 0.45rem;
+    background: color-mix(in srgb, #fff 94%, var(--day-color, var(--ocean)));
+    border-top: 1px solid color-mix(in srgb, var(--day-color, var(--ocean)) 35%, #ddd);
+    border-radius: 0 0 7px 7px;
+    z-index: 4;
   }
 }
