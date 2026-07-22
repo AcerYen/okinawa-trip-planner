@@ -163,13 +163,12 @@
   border: 1px solid color-mix(in srgb, var(--day-color, var(--ocean)) 55%, white);
   border-left: 4px solid var(--day-color, var(--ocean));
   border-radius: 8px;
-  padding: 0.35rem 0.45rem 0.55rem;
+  padding: 0.35rem 0.45rem;
   overflow: hidden;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
   user-select: none;
   touch-action: none;
 }
@@ -254,6 +253,8 @@
   gap: 0.45rem;
   align-items: flex-start;
   min-height: 0;
+  max-width: 100%;
+  transition: max-width 0.12s ease;
 }
 
 .blockMain img {
@@ -263,6 +264,11 @@
   border-radius: 6px;
   flex-shrink: 0;
   pointer-events: none;
+}
+
+.blockText {
+  min-width: 0;
+  flex: 1;
 }
 
 .blockMain strong {
@@ -279,45 +285,39 @@
   margin-top: 0.1rem;
 }
 
+/* 預設隱藏；懸停／聚焦時顯示於卡片右側空白 */
 .blockTools {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.25rem;
-  margin-top: auto;
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
-}
-
-/* 短時長：預設只顯示標題／時段，工具列懸停或聚焦時浮出 */
-.blockCompact {
-  padding-bottom: 0.35rem;
-}
-
-.blockCompact .blockMain img {
-  width: 28px;
-  height: 28px;
-}
-
-.blockCompact .blockTools {
   display: none;
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 50%;
+  right: 0.35rem;
+  transform: translateY(-50%);
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: flex-start;
+  justify-content: center;
+  gap: 0.2rem;
+  max-height: calc(100% - 0.5rem);
+  max-width: min(46%, 11.5rem);
   margin: 0;
-  padding: 0.3rem 0.4rem 0.45rem;
+  padding: 0.3rem;
   background: color-mix(in srgb, #fff 94%, var(--day-color, var(--ocean)));
-  border-top: 1px solid color-mix(in srgb, var(--day-color, var(--ocean)) 35%, #ddd);
-  border-radius: 0 0 7px 7px;
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.06);
+  border: 1px solid color-mix(in srgb, var(--day-color, var(--ocean)) 30%, #ddd);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 4;
+  overflow: auto;
 }
 
-.blockCompact:hover .blockTools,
-.blockCompact:focus-within .blockTools {
+.block:hover .blockTools,
+.block:focus-within .blockTools {
   display: flex;
+}
+
+.block:hover .blockMain,
+.block:focus-within .blockMain {
+  max-width: calc(100% - 7.25rem);
 }
 
 .blockTools label {
@@ -326,10 +326,11 @@
   gap: 0.2rem;
   font-size: 0.65rem;
   color: var(--text-muted);
+  white-space: nowrap;
 }
 
 .blockTools input {
-  width: 52px;
+  width: 48px;
   padding: 0.15rem 0.25rem;
   border: 1px solid var(--sand-dark);
   border-radius: 4px;
@@ -344,10 +345,10 @@
   background: #fff;
   border: 1px solid var(--sand-dark);
   color: var(--text-muted);
+  white-space: nowrap;
 }
 
 .blockTools .remove {
-  margin-left: auto;
   color: var(--coral);
 }
 
@@ -363,21 +364,13 @@
 
 @media (max-width: 560px) {
   .blockTools {
-    display: none;
+    max-width: min(52%, 9.5rem);
+    right: 0.25rem;
+    padding: 0.25rem;
   }
 
-  .block:focus-within .blockTools,
-  .block:hover .blockTools {
-    display: flex;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-    padding: 0.3rem 0.4rem 0.45rem;
-    background: color-mix(in srgb, #fff 94%, var(--day-color, var(--ocean)));
-    border-top: 1px solid color-mix(in srgb, var(--day-color, var(--ocean)) 35%, #ddd);
-    border-radius: 0 0 7px 7px;
-    z-index: 4;
+  .block:hover .blockMain,
+  .block:focus-within .blockMain {
+    max-width: calc(100% - 5.75rem);
   }
 }
