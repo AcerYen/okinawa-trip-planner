@@ -1,0 +1,8 @@
+name = "okinawa-trip-planner"
+compatibility_date = "2024-11-12"
+pages_build_output_dir = "dist"
+
+[[kv_namespaces]]
+binding = "TRIPS"
+id = "e71b2aa7e8b84d339b1992a812c0a7c7"
+preview_id = "658afd4918b24b239eeb0bb5dd246462"

@@ -1,5 +1,4 @@
 import { packingList } from '../data/okinawa'
-import { useLocalStorage } from '../hooks/useLocalStorage'
 import styles from './PackingList.module.css'
 
 const CATEGORY_LABELS = {
@@ -9,8 +8,14 @@ const CATEGORY_LABELS = {
   documents: '📄 證件',
 }
 
-export default function PackingList() {
-  const [checked, setChecked] = useLocalStorage<Record<string, boolean>>('okinawa-packing', {})
+interface Props {
+  checked: Record<string, boolean>
+  setChecked: (
+    value: Record<string, boolean> | ((prev: Record<string, boolean>) => Record<string, boolean>)
+  ) => void
+}
+
+export default function PackingList({ checked, setChecked }: Props) {
 
   const toggle = (id: string) => {
     setChecked((prev) => ({ ...prev, [id]: !prev[id] }))

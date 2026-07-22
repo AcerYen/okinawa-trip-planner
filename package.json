@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "pages:dev": "npm run build && npx wrangler@3.114.15 pages dev dist",
+    "pages:deploy": "npm run build && npx wrangler@3.114.15 pages deploy dist --project-name=okinawa-trip-planner"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

@@ -4,8 +4,8 @@ import PlannerBoard from './components/PlannerBoard'
 import PackingList from './components/PackingList'
 import BudgetCalculator from './components/BudgetCalculator'
 import BackToTop from './components/BackToTop'
-import { defaultItinerary, type DayPlan } from './data/okinawa'
-import { useLocalStorage } from './hooks/useLocalStorage'
+import ShareSync from './components/ShareSync'
+import { useSyncedTrip } from './hooks/useSyncedTrip'
 import styles from './App.module.css'
 
 type Tab = 'overview' | 'plan' | 'packing' | 'budget'
@@ -20,10 +20,20 @@ const TABS: { id: Tab; label: string; icon: string }[] = [
 export default function App() {
   const [tab, setTab] = useState<Tab>('plan')
   const [selectedDay, setSelectedDay] = useState(1)
-  const [itinerary, setItinerary] = useLocalStorage<DayPlan[]>(
-    'okinawa-itinerary-v12',
-    defaultItinerary
-  )
+  const {
+    tripId,
+    status,
+    itinerary,
+    setItinerary,
+    packing,
+    setPacking,
+    budget,
+    setBudget,
+    lockedIds,
+    setLockedIds,
+    createShareLink,
+    copyShareLink,
+  } = useSyncedTrip()
 
   return (
     <div className={styles.app}>
@@ -36,6 +46,12 @@ export default function App() {
               <small>2026 · Sep/Oct</small>
             </div>
           </div>
+          <ShareSync
+            tripId={tripId}
+            status={status}
+            onCreate={createShareLink}
+            onCopy={copyShareLink}
+          />
           <nav className={styles.nav}>
             {TABS.map((t) => (
               <button
@@ -57,17 +73,23 @@ export default function App() {
           <PlannerBoard
             itinerary={itinerary}
             setItinerary={setItinerary}
+            lockedIds={lockedIds}
+            setLockedIds={setLockedIds}
             selectedDay={Math.min(selectedDay, itinerary.length)}
             onSelectDay={setSelectedDay}
           />
         )}
-        {tab === 'packing' && <PackingList />}
-        {tab === 'budget' && <BudgetCalculator />}
+        {tab === 'packing' && <PackingList checked={packing} setChecked={setPacking} />}
+        {tab === 'budget' && <BudgetCalculator values={budget} setValues={setBudget} />}
       </main>
 
       {tab !== 'plan' && (
         <footer className={styles.footer}>
-          <p>資料自動儲存於瀏覽器 · 祝旅途愉快 🌺</p>
+          <p>
+            {tripId
+              ? '行程已透過分享連結雲端同步 · 祝旅途愉快 🌺'
+              : '資料儲存於本機；建立分享連結後可多裝置同步 · 祝旅途愉快 🌺'}
+          </p>
         </footer>
       )}
 

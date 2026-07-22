@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties, type DragEven
 import {
   attractions,
   defaultItinerary,
-  defaultLockedPlaces,
   DAY_COLORS,
   CATEGORY_LABELS,
   CATEGORY_ICONS,
@@ -23,7 +22,6 @@ import {
   resolveScheduleConflicts,
 } from '../data/schedule'
 import { autoScheduleLockedPlaces } from '../data/autoSchedule'
-import { useLocalStorage } from '../hooks/useLocalStorage'
 import { scrollAfterLayout, scrollFullyIntoView } from '../utils/scrollIntoView'
 import PlacePhoto from './PlacePhoto'
 import TripMap, { type MapMarker } from './TripMap'
@@ -33,6 +31,8 @@ import styles from './PlannerBoard.module.css'
 interface Props {
   itinerary: DayPlan[]
   setItinerary: (value: DayPlan[] | ((prev: DayPlan[]) => DayPlan[])) => void
+  lockedIds: string[]
+  setLockedIds: (value: string[] | ((prev: string[]) => string[])) => void
   selectedDay: number
   onSelectDay: (day: number) => void
 }
@@ -111,6 +111,8 @@ function PlaceIntro({
 export default function PlannerBoard({
   itinerary,
   setItinerary,
+  lockedIds,
+  setLockedIds,
   selectedDay,
   onSelectDay,
 }: Props) {
@@ -136,10 +138,6 @@ export default function PlannerBoard({
     name: string
     token: number
   } | null>(null)
-  const [lockedIds, setLockedIds] = useLocalStorage<string[]>(
-    'okinawa-locked-v1',
-    defaultLockedPlaces
-  )
 
   const getPlace = (id: string) => attractions.find((a) => a.id === id)
   const lockedSet = useMemo(() => new Set(lockedIds), [lockedIds])

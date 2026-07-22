@@ -1,13 +1,18 @@
 import { useMemo } from 'react'
 import { budgetItems } from '../data/okinawa'
-import { useLocalStorage } from '../hooks/useLocalStorage'
 import styles from './BudgetCalculator.module.css'
 
-export default function BudgetCalculator() {
+interface Props {
+  values: Record<string, number>
+  setValues: (
+    value: Record<string, number> | ((prev: Record<string, number>) => Record<string, number>)
+  ) => void
+}
+
+export default function BudgetCalculator({ values, setValues }: Props) {
   const defaultValues = Object.fromEntries(
     budgetItems.map((item) => [item.id, item.defaultValue])
   )
-  const [values, setValues] = useLocalStorage<Record<string, number>>('okinawa-budget', defaultValues)
 
   const total = useMemo(
     () => Object.values(values).reduce((sum, v) => sum + (v || 0), 0),
