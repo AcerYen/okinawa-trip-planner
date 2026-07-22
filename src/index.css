@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ocean-deep: #0a4f6e;
+  --ocean: #1a8fb4;
+  --ocean-light: #5ec4d9;
+  --coral: #ff7e6b;
+  --coral-light: #ffb4a6;
+  --sand: #faf6f0;
+  --sand-dark: #ede5d8;
+  --palm: #2d6a4f;
+  --sun: #f4a836;
+  --text: #1a2e35;
+  --text-muted: #5a7280;
+  --white: #ffffff;
+  --shadow: 0 4px 24px rgba(10, 79, 110, 0.12);
+  --shadow-lg: 0 8px 40px rgba(10, 79, 110, 0.18);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans TC', -apple-system, sans-serif;
+  background: var(--sand);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--sand-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ocean-light);
+  border-radius: 3px;
+}

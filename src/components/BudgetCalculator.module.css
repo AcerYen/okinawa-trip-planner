@@ -1,0 +1,157 @@
+.section {
+  animation: fadeIn 0.4s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  color: var(--ocean-deep);
+  margin-bottom: 0.25rem;
+}
+
+.header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.resetBtn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--sand-dark);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--white);
+  transition: all 0.2s;
+}
+
+.resetBtn:hover {
+  border-color: var(--ocean);
+  color: var(--ocean);
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.summaryCard {
+  background: linear-gradient(135deg, var(--ocean-deep), var(--ocean));
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.summaryLabel {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-bottom: 0.35rem;
+}
+
+.summaryValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.item {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.itemHeader label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.inputWrap span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.inputWrap input {
+  width: 120px;
+  padding: 0.4rem 0.6rem;
+  border: 2px solid var(--sand-dark);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  text-align: right;
+  transition: border-color 0.2s;
+}
+
+.inputWrap input:focus {
+  outline: none;
+  border-color: var(--ocean);
+}
+
+.barTrack {
+  height: 6px;
+  background: var(--sand-dark);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: var(--coral);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+  min-width: 2px;
+}
+
+.note {
+  background: var(--sand);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+}
+
+.note p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .summary {
+    grid-template-columns: 1fr;
+  }
+
+  .summaryValue {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,340 @@
+.section {
+  animation: fadeIn 0.4s ease;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  color: var(--ocean-deep);
+  margin-bottom: 0.25rem;
+}
+
+.header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.kindTabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.kindTabs button {
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: var(--white);
+  color: var(--text-muted);
+  border: 1.5px solid var(--sand-dark);
+  transition: all 0.2s;
+}
+
+.kindTabs button:hover {
+  border-color: var(--ocean);
+  color: var(--ocean);
+}
+
+.kindActive {
+  background: var(--ocean-deep) !important;
+  color: var(--white) !important;
+  border-color: var(--ocean-deep) !important;
+}
+
+.mapBlock {
+  margin-bottom: 1.25rem;
+}
+
+.dayPicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.dayPickerBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.dayPickerBtns button {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  border: 1.5px solid var(--sand-dark);
+  background: var(--white);
+  color: var(--text-muted);
+}
+
+.dayPickerBtns button:hover {
+  border-color: var(--ocean);
+  color: var(--ocean);
+}
+
+.dayActive {
+  background: var(--ocean) !important;
+  color: var(--white) !important;
+  border-color: var(--ocean) !important;
+}
+
+.toolbar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--sand-dark);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  background: var(--white);
+  transition: border-color 0.2s;
+}
+
+.search:focus {
+  outline: none;
+  border-color: var(--ocean);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.toggle input {
+  accent-color: var(--ocean);
+  width: 16px;
+  height: 16px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filterBtn {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  background: var(--white);
+  color: var(--text-muted);
+  border: 1px solid var(--sand-dark);
+  transition: all 0.2s;
+}
+
+.filterBtn:hover {
+  border-color: var(--ocean-light);
+  color: var(--ocean);
+}
+
+.filterBtn.active {
+  background: var(--ocean);
+  color: var(--white);
+  border-color: var(--ocean);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.card.expanded {
+  grid-column: 1 / -1;
+  cursor: default;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.cardTitle {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.categoryIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.cardTitle h3 {
+  font-size: 1.05rem;
+  color: var(--ocean-deep);
+  line-height: 1.3;
+}
+
+.nameJa {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  background: var(--sand);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badgeEat {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  background: #fff0ec;
+  color: var(--coral);
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ratingScore {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #c47a00;
+  background: #fff6e0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.eatCard {
+  border-left: 3px solid var(--coral);
+}
+
+.ratingBlock {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.65rem 0.9rem;
+  background: #fff6e0;
+  border-radius: var(--radius-sm);
+}
+
+.ratingBlock strong {
+  color: #c47a00;
+  font-size: 1.1rem;
+}
+
+.ratingBlock span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.details {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--sand-dark);
+  cursor: default;
+}
+
+.details > p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.tip {
+  background: var(--sand);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tip strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ocean-deep);
+  margin-bottom: 0.35rem;
+}
+
+.tip p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.addBtn {
+  background: var(--coral);
+  color: var(--white);
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.addBtn:hover {
+  background: var(--coral-light);
+  color: var(--text);
+}
+
+.empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem;
+}
+
+@media (max-width: 768px) {
+  .card.expanded {
+    grid-column: auto;
+  }
+}

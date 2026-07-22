@@ -1,0 +1,342 @@
+.wrap {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--day-color, var(--ocean));
+  padding: 0.85rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.headMain {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.badge {
+  flex-shrink: 0;
+  background: var(--day-color, var(--ocean));
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ocean-deep);
+  padding: 0.15rem 0;
+}
+
+.title:focus {
+  outline: none;
+  border-bottom: 1px solid var(--sand-dark);
+}
+
+.stats {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.paceWarn {
+  color: #b33a3a;
+  font-weight: 700;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.paceAlert {
+  margin: 0;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  background: #fdecea;
+  color: #8a2b2b;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 0.25rem;
+  max-height: 520px;
+  overflow-y: auto;
+  border: 1px solid var(--sand-dark);
+  border-radius: 10px;
+  background: var(--sand);
+}
+
+.timeCol {
+  padding-top: 0;
+}
+
+.timeLabel {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-align: right;
+  padding-right: 0.35rem;
+  transform: translateY(-0.45em);
+}
+
+.grid {
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(60px * 1.2 - 1px),
+      rgba(0, 0, 0, 0.06) calc(60px * 1.2 - 1px),
+      rgba(0, 0, 0, 0.06) calc(60px * 1.2)
+    );
+  background-color: #fff;
+  border-left: 1px solid var(--sand-dark);
+  min-height: 200px;
+}
+
+.hourLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+}
+
+.travelGap {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+  border-left: 2px dashed color-mix(in srgb, var(--day-color, var(--ocean)) 45%, #ccc);
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 4px,
+    rgba(0, 0, 0, 0.02) 4px,
+    rgba(0, 0, 0, 0.02) 8px
+  );
+}
+
+.travelGap span {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.block {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  background: color-mix(in srgb, var(--day-color, var(--ocean)) 18%, white);
+  border: 1px solid color-mix(in srgb, var(--day-color, var(--ocean)) 55%, white);
+  border-left: 4px solid var(--day-color, var(--ocean));
+  border-radius: 8px;
+  padding: 0.35rem 0.45rem 0.55rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  user-select: none;
+  touch-action: none;
+}
+
+.blockDragging {
+  z-index: 5;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  opacity: 0.95;
+}
+
+.blockBody {
+  flex: 1;
+  min-height: 0;
+  cursor: grab;
+}
+
+.blockBody:active {
+  cursor: grabbing;
+}
+
+.resizeHandleTop,
+.resizeHandleBottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  cursor: ns-resize;
+  z-index: 2;
+}
+
+.resizeHandleTop {
+  top: 0;
+}
+
+.resizeHandleBottom {
+  bottom: 0;
+}
+
+.resizeHandleTop::after,
+.resizeHandleBottom::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 3px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--day-color, var(--ocean)) 55%, #fff);
+  opacity: 0.7;
+}
+
+.resizeHandleTop::after {
+  top: 3px;
+}
+
+.resizeHandleBottom::after {
+  bottom: 3px;
+}
+
+.block:hover .resizeHandleTop::after,
+.block:hover .resizeHandleBottom::after,
+.blockDragging .resizeHandleTop::after,
+.blockDragging .resizeHandleBottom::after {
+  opacity: 1;
+}
+
+.blockHigh {
+  border-left-color: #b33a3a;
+  background: color-mix(in srgb, #b33a3a 12%, white);
+}
+
+.blockMid {
+  border-left-color: #c47a1a;
+}
+
+.blockLow {
+  border-left-color: #2d6a4f;
+}
+
+.blockMain {
+  display: flex;
+  gap: 0.45rem;
+  align-items: flex-start;
+  min-height: 0;
+}
+
+.blockMain img {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.blockMain strong {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--ocean-deep);
+  line-height: 1.25;
+}
+
+.blockMain span {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+
+.blockTools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.blockTools label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.blockTools input {
+  width: 52px;
+  padding: 0.15rem 0.25rem;
+  border: 1px solid var(--sand-dark);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  background: #fff;
+}
+
+.blockTools button {
+  padding: 0.15rem 0.35rem;
+  font-size: 0.65rem;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid var(--sand-dark);
+  color: var(--text-muted);
+}
+
+.blockTools .remove {
+  margin-left: auto;
+  color: var(--coral);
+}
+
+.notes {
+  width: 100%;
+  border: 1px solid var(--sand-dark);
+  border-radius: 8px;
+  padding: 0.45rem 0.55rem;
+  font-size: 0.78rem;
+  background: var(--sand);
+  resize: vertical;
+}
+
+@media (max-width: 560px) {
+  .blockTools {
+    display: none;
+  }
+
+  .block:focus-within .blockTools,
+  .block:hover .blockTools {
+    display: flex;
+  }
+}

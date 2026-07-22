@@ -1,0 +1,138 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: var(--white);
+  border-bottom: 1px solid var(--sand-dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(10, 79, 110, 0.06);
+}
+
+.headerInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.headerWide {
+  max-width: none;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo span {
+  font-size: 1.75rem;
+}
+
+.logo strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--ocean-deep);
+  line-height: 1.2;
+}
+
+.logo small {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.nav {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.navBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.navBtn:hover {
+  background: var(--sand);
+  color: var(--ocean);
+}
+
+.navBtn.active {
+  background: var(--ocean);
+  color: var(--white);
+}
+
+.navIcon {
+  font-size: 1rem;
+}
+
+.main {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.mainWide {
+  max-width: none;
+  padding: 2rem 1.5rem 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--sand-dark);
+}
+
+@media (max-width: 768px) {
+  .headerInner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .navLabel {
+    display: none;
+  }
+
+  .navBtn {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .main {
+    padding: 1.25rem 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .navIcon {
+    display: none;
+  }
+}

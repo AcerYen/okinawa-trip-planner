@@ -1,0 +1,218 @@
+.section {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 60%, var(--ocean-light) 100%);
+  border-radius: var(--radius);
+  padding: 3rem;
+  color: var(--white);
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.desc {
+  font-size: 1rem;
+  opacity: 0.85;
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+.heroVisual {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji {
+  font-size: 5rem;
+  position: relative;
+  z-index: 1;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.wave {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 0.2; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+  color: var(--ocean-deep);
+}
+
+.weatherList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.weatherList div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--sand-dark);
+}
+
+.weatherList div:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.weatherList dt {
+  font-weight: 500;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.weatherList dd {
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+.checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.checklist li {
+  font-size: 0.95rem;
+  padding: 0.4rem 0;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  color: var(--ocean-deep);
+  margin-bottom: 1.5rem;
+}
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.tipCard {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tipCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.tipIcon {
+  font-size: 1.75rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.tipCard h4 {
+  font-size: 1rem;
+  color: var(--ocean-deep);
+  margin-bottom: 0.5rem;
+}
+
+.tipCard p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 1.85rem;
+  }
+
+  .desc {
+    max-width: none;
+  }
+
+  .heroVisual {
+    margin: 0 auto;
+  }
+}

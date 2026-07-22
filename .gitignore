@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+dist-ssr/
+*.local
+
+# TypeScript
+*.tsbuildinfo
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Logs / env
+*.log
+npm-debug.log*
+.env
+.env.*
+!.env.example
+
+# Wrangler / Cloudflare
+.wrangler/
+.dev.vars

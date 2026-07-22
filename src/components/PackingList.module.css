@@ -1,0 +1,129 @@
+.section {
+  animation: fadeIn 0.4s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  color: var(--ocean-deep);
+  margin-bottom: 0.25rem;
+}
+
+.header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actions button {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--sand-dark);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--white);
+  transition: all 0.2s;
+}
+
+.actions button:hover {
+  border-color: var(--ocean);
+  color: var(--ocean);
+}
+
+.progressBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.progressTrack {
+  flex: 1;
+  height: 10px;
+  background: var(--sand-dark);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ocean), var(--ocean-light));
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.progressText {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ocean);
+  white-space: nowrap;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.category {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.category h3 {
+  font-size: 1rem;
+  color: var(--ocean-deep);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.catCount {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.category ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.category label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  cursor: pointer;
+  padding: 0.35rem 0;
+  transition: color 0.2s;
+}
+
+.category label.done {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.category input[type="checkbox"] {
+  accent-color: var(--ocean);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}

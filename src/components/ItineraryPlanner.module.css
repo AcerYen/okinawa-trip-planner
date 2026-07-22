@@ -1,0 +1,368 @@
+.section {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+  color: var(--ocean-deep);
+  margin-bottom: 0.25rem;
+}
+
+.header p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.addDayBtn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--white);
+  background: var(--ocean);
+  transition: background 0.2s;
+}
+
+.addDayBtn:hover:not(:disabled) {
+  background: var(--ocean-deep);
+}
+
+.addDayBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.resetBtn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--sand-dark);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--white);
+  transition: all 0.2s;
+}
+
+.resetBtn:hover {
+  border-color: var(--coral);
+  color: var(--coral);
+}
+
+.mapBlock {
+  margin-bottom: 2rem;
+}
+
+.mapToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.mapTitle {
+  font-weight: 600;
+  color: var(--ocean-deep);
+  font-size: 0.95rem;
+}
+
+.mapFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.mapFilters button {
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  border: 1.5px solid var(--sand-dark);
+  background: var(--white);
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+
+.mapFilters button:hover {
+  border-color: var(--ocean-light);
+}
+
+.filterActive {
+  background: var(--ocean) !important;
+  color: var(--white) !important;
+  border-color: transparent !important;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  background: var(--white);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s;
+}
+
+.legendItem:hover {
+  transform: translateY(-1px);
+}
+
+.legendItem small {
+  color: var(--text-muted);
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.weekGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.dayCard {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.15rem;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--day-color, var(--ocean));
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: default;
+}
+
+.dayCard:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.dayCardActive {
+  box-shadow: 0 0 0 2px var(--day-color, var(--ocean)), var(--shadow-lg);
+}
+
+.dayCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.dayBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--day-color, var(--ocean));
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+.removeDayBtn {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--sand);
+  transition: all 0.15s;
+}
+
+.removeDayBtn:hover {
+  background: var(--coral);
+  color: var(--white);
+}
+
+.titleInput {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ocean-deep);
+  border: none;
+  border-bottom: 1px solid transparent;
+  padding: 0.25rem 0;
+  background: transparent;
+  margin-bottom: 0.75rem;
+}
+
+.titleInput:focus {
+  outline: none;
+  border-bottom-color: var(--ocean-light);
+}
+
+.spotList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+  min-height: 48px;
+}
+
+.emptyHint {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  padding: 0.75rem;
+  background: var(--sand);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  border: 1px dashed var(--sand-dark);
+}
+
+.spotRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: var(--sand);
+  border-radius: 8px;
+}
+
+.spotNum {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--day-color, var(--ocean));
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.spotInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.spotInfo strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.spotInfo span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.spotActions {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.spotActions button {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--white);
+  border: 1px solid var(--sand-dark);
+}
+
+.spotActions button:hover:not(:disabled) {
+  background: var(--ocean-light);
+  color: var(--white);
+  border-color: var(--ocean-light);
+}
+
+.spotActions button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.removeBtn:hover:not(:disabled) {
+  background: var(--coral) !important;
+  border-color: var(--coral) !important;
+}
+
+.notes {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--sand-dark);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  resize: vertical;
+  background: var(--sand);
+  color: var(--text-muted);
+}
+
+.notes:focus {
+  outline: none;
+  border-color: var(--ocean);
+  background: var(--white);
+  color: var(--text);
+}
+
+.addDayCard {
+  min-height: 180px;
+  border: 2px dashed var(--sand-dark);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.addDayCard span {
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--ocean);
+}
+
+.addDayCard:hover {
+  border-color: var(--ocean);
+  color: var(--ocean);
+  background: rgba(26, 143, 180, 0.04);
+}
+
+@media (max-width: 600px) {
+  .weekGrid {
+    grid-template-columns: 1fr;
+  }
+}
