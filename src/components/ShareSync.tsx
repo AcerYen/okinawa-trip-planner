@@ -18,6 +18,15 @@ const STATUS_LABEL: Record<SyncStatus, string> = {
   error: '同步失敗',
 }
 
+const STATUS_CLASS: Record<SyncStatus, string> = {
+  local: styles.local,
+  loading: styles.loading,
+  synced: styles.synced,
+  saving: styles.saving,
+  offline: styles.offline,
+  error: styles.error,
+}
+
 export default function ShareSync({ tripId, status, onCreate, onCopy }: Props) {
   const [busy, setBusy] = useState(false)
   const [hint, setHint] = useState<string | null>(null)
@@ -44,7 +53,7 @@ export default function ShareSync({ tripId, status, onCreate, onCopy }: Props) {
 
   return (
     <div className={styles.wrap}>
-      <span className={`${styles.status} ${styles[status]}`} title={tripId ?? undefined}>
+      <span className={`${styles.status} ${STATUS_CLASS[status]}`} title={tripId ?? undefined}>
         {STATUS_LABEL[status]}
       </span>
       {tripId ? (
